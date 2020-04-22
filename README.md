@@ -15,12 +15,12 @@ SonarQube properties
 
 ```xml
 <properties>
-    <sonar.dependencyCheck.jsonReportPath>${project.basedir}/target/dependency-check-report.json</sonar.dependencyCheck.jsonReportPath>
-    <sonar.dependencyCheck.htmlReportPath>${project.basedir}/target/dependency-check-report.html</sonar.dependencyCheck.htmlReportPath>
-    <sonar.dependencyCheck.xmlReportPath>${project.basedir}/target/dependency-check-report.xml</sonar.dependencyCheck.xmlReportPath>
-    <sonar.java.checkstyle.reportPaths>${project.basedir}/target/checkstyle-result.xml</sonar.java.checkstyle.reportPaths>
-    <sonar.java.spotbugs.reportPaths>${project.basedir}/target/spotbugsXml.xml</sonar.java.spotbugs.reportPaths>
-    <sonar.java.pmd.reportPaths>${project.basedir}/target/pmd.xml</sonar.java.pmd.reportPaths>
+    <sonar.dependencyCheck.jsonReportPath>${project.build.directory}/dependency-check-report.json</sonar.dependencyCheck.jsonReportPath>
+    <sonar.dependencyCheck.htmlReportPath>${project.build.directory}/dependency-check-report.html</sonar.dependencyCheck.htmlReportPath>
+    <sonar.dependencyCheck.xmlReportPath>${project.build.directory}/dependency-check-report.xml</sonar.dependencyCheck.xmlReportPath>
+    <sonar.java.checkstyle.reportPaths>${project.build.directory}/checkstyle-result.xml</sonar.java.checkstyle.reportPaths>
+    <sonar.java.spotbugs.reportPaths>${project.build.directory}/spotbugsXml.xml</sonar.java.spotbugs.reportPaths>
+    <sonar.java.pmd.reportPaths>${project.build.directory}/pmd.xml</sonar.java.pmd.reportPaths>
 </properties>
 ```
 
