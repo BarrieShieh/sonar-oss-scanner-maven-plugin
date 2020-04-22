@@ -56,7 +56,7 @@
                     <plugin>
                         <groupId>com.mebigfatguy.sb-contrib</groupId>
                         <artifactId>sb-contrib</artifactId>
-                        <version>7.4.7</version>
+                        <version>LATEST</version> <!-- Auto-update to the latest stable -->
                     </plugin>
                 </plugins>
             </configuration>
