@@ -6,8 +6,22 @@ Example Usage
 
 How to use this plugin
 
-``` bash
+```shell script
 mvn oss:scan
+```
+
+SonarQube properties
+=============
+
+```xml
+<properties>
+    <sonar.dependencyCheck.jsonReportPath>${project.basedir}/target/dependency-check-report.json</sonar.dependencyCheck.jsonReportPath>
+    <sonar.dependencyCheck.htmlReportPath>${project.basedir}/target/dependency-check-report.html</sonar.dependencyCheck.htmlReportPath>
+    <sonar.dependencyCheck.xmlReportPath>${project.basedir}/target/dependency-check-report.xml</sonar.dependencyCheck.xmlReportPath>
+    <sonar.java.checkstyle.reportPaths>${project.basedir}/target/checkstyle-result.xml</sonar.java.checkstyle.reportPaths>
+    <sonar.java.spotbugs.reportPaths>${project.basedir}/target/spotbugsXml.xml</sonar.java.spotbugs.reportPaths>
+    <sonar.java.pmd.reportPaths>${project.basedir}/target/pmd.xml</sonar.java.pmd.reportPaths>
+</properties>
 ```
 
 Maven Dependency
@@ -17,7 +31,7 @@ NOTE: This plugin is not in the central maven yet. You need to use `mvn install`
 
 Add this to your pom.xml:
 
-``` xml
+```xml
 <plugin>
     <groupId>org.twdata.maven</groupId>
     <artifactId>oss</artifactId>
@@ -27,7 +41,7 @@ Add this to your pom.xml:
 
 You can add more analyzer to the plugins.xml with following format
 
-``` xml
+```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration>
     <plugins>
