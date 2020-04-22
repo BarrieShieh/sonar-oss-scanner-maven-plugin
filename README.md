@@ -75,8 +75,11 @@ Contributors
 [mojo-executor](https://github.com/TimMoore/mojo-executor)
 
 [sonarqube-licensecheck](https://github.com/porscheinformatik/sonarqube-licensecheck)
+
 [checkstyle](https://github.com/checkstyle/checkstyle)
+
 [spotbugs](https://github.com/spotbugs/spotbugs)
+
 [pmd](https://github.com/pmd/pmd)
 
 [mojo-api](http://maven.apache.org/developers/mojo-api-specification.html)
