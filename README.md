@@ -34,8 +34,8 @@ Add this to your pom.xml:
 ```xml
 <plugin>
     <groupId>org.twdata.maven</groupId>
-    <artifactId>oss</artifactId>
-    <version>1.0.1</version>
+    <artifactId>sonar-oss-scanner-plugin</artifactId>
+    <version>1.0.2</version>
 </plugin>
 ```
 
