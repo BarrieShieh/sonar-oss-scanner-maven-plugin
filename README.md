@@ -16,10 +16,15 @@ maven-pmd-plugin                  | 3.13.0                     |
 Example Usage
 =============
 
-How to use this plugin
+How to use this plugin in the project
 
 ```shell script
+# Build the project
+mvn clean compile package
+# Generate the reports
 mvn oss:scan
+# Do the sonar scan
+mvn sonar:sonar
 ```
 
 SonarQube properties
