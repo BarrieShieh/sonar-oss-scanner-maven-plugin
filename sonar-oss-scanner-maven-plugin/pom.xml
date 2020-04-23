@@ -23,7 +23,7 @@
         <version>1.0.3-SNAPSHOT</version>
     </parent>
 
-    <artifactId>sonar-oss-scanner-plugin</artifactId>
+    <artifactId>sonar-oss-scanner-maven-plugin</artifactId>
     <packaging>maven-plugin</packaging>
 
     <name>Mojo Executor Maven Plugin</name>

@@ -89,7 +89,7 @@
 
   <modules>
     <module>mojo-executor</module>
-    <module>mojo-executor-maven-plugin</module>
+    <module>sonar-oss-scanner-maven-plugin</module>
   </modules>
 
   <scm>
