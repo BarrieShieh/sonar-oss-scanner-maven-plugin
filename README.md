@@ -8,7 +8,7 @@ This scanner is embedded with following scanner by default
 
 Embedded Plugin name              |Embedded Plugin name        |Description
 ----------------------------------|----------------------------|-----------------------------------------------
-dependency-check-maven            | 5.3.2                      | Retirejs Analyzer is disabled. For frontend project, this option can be enabled                  
+dependency-check-maven            | 5.3.2                      |                 
 maven-checkstyle-plugin           | 3.1.1                      | With Google Java Style
 spotbugs-maven-plugin             | 4.0.0                      | With findsecbugs(LATEST), sb-contrib(LATEST)        
 maven-pmd-plugin                  | 3.13.0                     | 

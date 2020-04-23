@@ -10,7 +10,6 @@
                 <version>5.3.2</version>
             </plugin>
             <configuration>
-                <retireJsAnalyzerEnabled>false</retireJsAnalyzerEnabled>
                 <autoUpdate>true</autoUpdate>
                 <format>ALL</format>
             </configuration>
@@ -28,8 +27,6 @@
                 <configLocation>google_checks.xml</configLocation>
                 <encoding>UTF-8</encoding>
                 <consoleOutput>true</consoleOutput>
-                <failsOnError>false</failsOnError>
-                <linkXRef>false</linkXRef>
             </configuration>
         </plugin>
 
