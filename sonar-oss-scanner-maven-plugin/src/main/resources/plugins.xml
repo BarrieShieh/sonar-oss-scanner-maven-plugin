@@ -1,73 +1,71 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration>
-    <plugins>
-        <!-- https://mvnrepository.com/artifact/org.owasp/dependency-check-maven -->
-        <plugin>
-            <goal>check</goal>
-            <plugin>
-                <groupId>org.owasp</groupId>
-                <artifactId>dependency-check-maven</artifactId>
-                <version>5.3.2</version>
-            </plugin>
-            <configuration>
-                <autoUpdate>true</autoUpdate>
-                <format>ALL</format>
-            </configuration>
-        </plugin>
-
-        <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-checkstyle-plugin -->
-        <plugin>
-            <goal>checkstyle</goal>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-checkstyle-plugin</artifactId>
-                <version>3.1.1</version>
-            </plugin>
-            <configuration>
-                <configLocation>google_checks.xml</configLocation>
-                <encoding>UTF-8</encoding>
-                <consoleOutput>true</consoleOutput>
-            </configuration>
-        </plugin>
-
-        <!-- https://mvnrepository.com/artifact/com.github.spotbugs/spotbugs-maven-plugin -->
-        <plugin>
-            <goal>spotbugs</goal>
-            <plugin>
-                <groupId>com.github.spotbugs</groupId>
-                <artifactId>spotbugs-maven-plugin</artifactId>
-                <version>4.0.0</version>
-            </plugin>
-            <configuration>
-                <effort>Max</effort>
-                <threshold>Low</threshold>
-                <failOnError>true</failOnError>
-                <!--                        <includeFilterFile>${session.executionRootDirectory}/spotbugs-include.xml</includeFilterFile>-->
-                <plugins>
-                    <plugin>
-                        <groupId>com.h3xstream.findsecbugs</groupId>
-                        <artifactId>findsecbugs-plugin</artifactId>
-                        <version>LATEST</version> <!-- Auto-update to the latest stable -->
-                    </plugin>
-                    <!-- https://mvnrepository.com/artifact/com.mebigfatguy.sb-contrib/sb-contrib -->
-                    <plugin>
-                        <groupId>com.mebigfatguy.sb-contrib</groupId>
-                        <artifactId>sb-contrib</artifactId>
-                        <version>LATEST</version> <!-- Auto-update to the latest stable -->
-                    </plugin>
-                </plugins>
-            </configuration>
-        </plugin>
-        <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-pmd-plugin -->
-        <plugin>
-            <goal>pmd</goal>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-pmd-plugin</artifactId>
-                <version>3.13.0</version>
-            </plugin>
-            <configuration>
-            </configuration>
-        </plugin>
-    </plugins>
+  <plugins>
+    <!-- https://mvnrepository.com/artifact/org.owasp/dependency-check-maven -->
+    <plugin>
+      <goal>check</goal>
+      <plugin>
+        <groupId>org.owasp</groupId>
+        <artifactId>dependency-check-maven</artifactId>
+        <version>5.3.2</version>
+      </plugin>
+      <configuration>
+        <autoUpdate>true</autoUpdate>
+        <format>ALL</format>
+      </configuration>
+    </plugin>
+    <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-checkstyle-plugin -->
+    <plugin>
+      <goal>checkstyle</goal>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-checkstyle-plugin</artifactId>
+        <version>3.1.1</version>
+      </plugin>
+      <configuration>
+        <configLocation>google_checks.xml</configLocation>
+        <encoding>UTF-8</encoding>
+        <consoleOutput>true</consoleOutput>
+      </configuration>
+    </plugin>
+    <!-- https://mvnrepository.com/artifact/com.github.spotbugs/spotbugs-maven-plugin -->
+    <plugin>
+      <goal>spotbugs</goal>
+      <plugin>
+        <groupId>com.github.spotbugs</groupId>
+        <artifactId>spotbugs-maven-plugin</artifactId>
+        <version>4.0.0</version>
+      </plugin>
+      <configuration>
+        <effort>Max</effort>
+        <threshold>Low</threshold>
+        <failOnError>true</failOnError>
+        <!--                        <includeFilterFile>${session.executionRootDirectory}/spotbugs-include.xml</includeFilterFile>-->
+        <plugins>
+          <plugin>
+            <groupId>com.h3xstream.findsecbugs</groupId>
+            <artifactId>findsecbugs-plugin</artifactId>
+            <version>LATEST</version> <!-- Auto-update to the latest stable -->
+          </plugin>
+          <!-- https://mvnrepository.com/artifact/com.mebigfatguy.sb-contrib/sb-contrib -->
+          <plugin>
+            <groupId>com.mebigfatguy.sb-contrib</groupId>
+            <artifactId>sb-contrib</artifactId>
+            <version>LATEST</version> <!-- Auto-update to the latest stable -->
+          </plugin>
+        </plugins>
+      </configuration>
+    </plugin>
+    <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-pmd-plugin -->
+    <plugin>
+      <goal>pmd</goal>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-pmd-plugin</artifactId>
+        <version>3.13.0</version>
+      </plugin>
+      <configuration>
+      </configuration>
+    </plugin>
+  </plugins>
 </configuration>

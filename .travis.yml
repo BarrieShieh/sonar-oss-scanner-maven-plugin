@@ -11,8 +11,8 @@ jdk:
 
 # cache local Maven repo: http://docs.travis-ci.com/user/caching/
 cache:
-   directories:
-     - '$HOME/.m2/repository'
+  directories:
+    - '$HOME/.m2/repository'
 
 before_install:
   - wget https://archive.apache.org/dist/maven/maven-3/3.0.5/binaries/apache-maven-3.0.5-bin.zip

@@ -14,75 +14,75 @@
   See the License for the specific language governing permissions and
   limitations under the License.
   -->
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-    <modelVersion>4.0.0</modelVersion>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns="http://maven.apache.org/POM/4.0.0"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <artifactId>mojo-executor-test-project-no-plugin-version</artifactId>
 
-    <groupId>org.twdata.maven</groupId>
-    <artifactId>mojo-executor-test-project-no-plugin-version</artifactId>
-    <version>1.0-SNAPSHOT</version>
+  <build>
+    <pluginManagement>
+      <plugins>
+        <plugin>
+          <artifactId>maven-dependency-plugin</artifactId>
+          <groupId>org.apache.maven.plugins</groupId>
+          <version>2.0</version>
+        </plugin>
+      </plugins>
+    </pluginManagement>
 
-    <name>Mojo Executor - Test Project</name>
-    <description>
-        Used by the tests for the Mojo Executor Maven Plugin.
-    </description>
+    <plugins>
+      <plugin>
+        <artifactId>mojo-executor-maven-plugin</artifactId>
+        <executions>
+          <execution>
+            <configuration>
+              <configuration>
+              </configuration>
+              <goal>list</goal>
+              <plugin>
+                <artifactId>maven-dependency-plugin</artifactId>
+                <groupId>org.apache.maven.plugins</groupId>
+              </plugin>
+            </configuration>
+            <goals>
+              <goal>execute-mojo</goal>
+            </goals>
+            <phase>test</phase>
+          </execution>
+        </executions>
+        <groupId>org.twdata.maven</groupId>
+        <version>@project.version@</version>
+      </plugin>
+    </plugins>
+  </build>
+  <dependencies>
+    <dependency>
+      <artifactId>slf4j-api</artifactId>
+      <groupId>org.slf4j</groupId>
+      <scope>provided</scope>
+      <version>1.7.4</version>
+    </dependency>
+    <dependency>
+      <artifactId>slf4j-nop</artifactId>
+      <groupId>org.slf4j</groupId>
+      <scope>runtime</scope>
+      <version>1.7.4</version>
+    </dependency>
+    <dependency>
+      <artifactId>junit-dep</artifactId>
+      <groupId>junit</groupId>
+      <scope>test</scope>
+      <version>4.11</version>
+    </dependency>
+  </dependencies>
+  <description>
+    Used by the tests for the Mojo Executor Maven Plugin.
+  </description>
 
-    <dependencies>
-        <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-api</artifactId>
-            <version>1.7.4</version>
-            <scope>provided</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-nop</artifactId>
-            <version>1.7.4</version>
-            <scope>runtime</scope>
-        </dependency>
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit-dep</artifactId>
-            <version>4.11</version>
-            <scope>test</scope>
-        </dependency>
-    </dependencies>
+  <groupId>org.twdata.maven</groupId>
+  <modelVersion>4.0.0</modelVersion>
 
-    <build>
-      <pluginManagement>
-        <plugins>
-          <plugin>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-dependency-plugin</artifactId>
-            <version>2.0</version>
-          </plugin>
-        </plugins>
-      </pluginManagement>
+  <name>Mojo Executor - Test Project</name>
 
-        <plugins>
-            <plugin>
-                <groupId>org.twdata.maven</groupId>
-                <artifactId>mojo-executor-maven-plugin</artifactId>
-                <version>@project.version@</version>
-                <executions>
-                    <execution>
-                        <phase>test</phase>
-                        <goals>
-                            <goal>execute-mojo</goal>
-                        </goals>
-                        <configuration>
-                            <plugin>
-                                <groupId>org.apache.maven.plugins</groupId>
-                                <artifactId>maven-dependency-plugin</artifactId>
-                            </plugin>
-                            <goal>list</goal>
-                            <configuration>
-                            </configuration>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
-        </plugins>
-    </build>
+  <version>1.0-SNAPSHOT</version>
 </project>

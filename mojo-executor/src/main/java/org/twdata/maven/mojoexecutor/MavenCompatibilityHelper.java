@@ -15,6 +15,9 @@
  */
 package org.twdata.maven.mojoexecutor;
 
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+import java.util.List;
 import org.apache.maven.execution.MavenSession;
 import org.apache.maven.model.Plugin;
 import org.apache.maven.plugin.BuildPluginManager;
@@ -29,77 +32,76 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.twdata.maven.mojoexecutor.MojoExecutor.ExecutionEnvironment;
 
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
-import java.util.List;
-
 /**
  * The <tt>MavenCompatibilityHelper</tt> hides incompatibilities between Maven versions
- *
  */
 public class MavenCompatibilityHelper {
 
-    private static final Logger logger = LoggerFactory.getLogger( MavenCompatibilityHelper.class );
+  private static final Logger logger = LoggerFactory.getLogger(MavenCompatibilityHelper.class);
 
-    private static Method getRepositorySession;
-    private static Method loadPlugin;
+  private static Method getRepositorySession;
+  private static Method loadPlugin;
 
-    static {
+  static {
 
-        for (Method m : MavenSession.class.getMethods()) {
-            if ("getRepositorySession".equals(m.getName())) {
-                getRepositorySession = m;
-                break;
-            }
-        }
-
-        if (getRepositorySession == null) {
-            throw new ExceptionInInitializerError("Unable to locate getRepositorySession method");
-        }
-
-        for (Method m : BuildPluginManager.class.getMethods()) {
-            if ("loadPlugin".equals(m.getName())) {
-                loadPlugin = m;
-                break;
-            }
-        }
-
-        if (loadPlugin == null) {
-            throw new ExceptionInInitializerError("Unable to locate loadPluginDescriptor method");
-        }
+    for (Method m : MavenSession.class.getMethods()) {
+      if ("getRepositorySession".equals(m.getName())) {
+        getRepositorySession = m;
+        break;
+      }
     }
 
-    public static PluginDescriptor loadPluginDescriptor(Plugin plugin, ExecutionEnvironment env, MavenSession session)
-        throws PluginResolutionException, PluginDescriptorParsingException, InvalidPluginDescriptorException,
-        PluginNotFoundException, MojoExecutionException {
-
-        try {
-            Object repositorySession = getRepositorySession.invoke(session);
-
-            BuildPluginManager pluginManager = env.getPluginManager();
-
-            List<RemoteRepository> repositories = null;
-            if ( session.getCurrentProject() != null ) {
-                repositories = session.getCurrentProject().getRemotePluginRepositories();
-            }
-            logger.debug("Attempting to load plugin {} using pluginManager {} and repositories {}", plugin, pluginManager, repositories);
-            return (PluginDescriptor) loadPlugin.invoke(pluginManager, plugin, repositories, repositorySession);
-        } catch (IllegalAccessException e) {
-            throw new MojoExecutionException("Unable to access plugin", e);
-        } catch (InvocationTargetException e) {
-            logger.debug("Unable to invoke plugin", e.getCause());
-            // Unwrap the exception to throw the correct type.
-            if (e.getCause() instanceof PluginNotFoundException) {
-                throw ((PluginNotFoundException) e.getCause());
-            } else if (e.getCause() instanceof PluginResolutionException) {
-                throw ((PluginResolutionException) e.getCause());
-            } else if (e.getCause() instanceof PluginDescriptorParsingException) {
-                throw ((PluginDescriptorParsingException) e.getCause());
-            } else if (e.getCause() instanceof InvalidPluginDescriptorException) {
-                throw ((InvalidPluginDescriptorException) e.getCause());
-            } else {
-                throw new MojoExecutionException("Unable to invoke plugin", e.getCause());
-            }
-        }
+    if (getRepositorySession == null) {
+      throw new ExceptionInInitializerError("Unable to locate getRepositorySession method");
     }
+
+    for (Method m : BuildPluginManager.class.getMethods()) {
+      if ("loadPlugin".equals(m.getName())) {
+        loadPlugin = m;
+        break;
+      }
+    }
+
+    if (loadPlugin == null) {
+      throw new ExceptionInInitializerError("Unable to locate loadPluginDescriptor method");
+    }
+  }
+
+  public static PluginDescriptor loadPluginDescriptor(Plugin plugin, ExecutionEnvironment env,
+      MavenSession session)
+      throws PluginResolutionException, PluginDescriptorParsingException, InvalidPluginDescriptorException,
+      PluginNotFoundException, MojoExecutionException {
+
+    try {
+      Object repositorySession = getRepositorySession.invoke(session);
+
+      BuildPluginManager pluginManager = env.getPluginManager();
+
+      List<RemoteRepository> repositories = null;
+      if (session.getCurrentProject() != null) {
+        repositories = session.getCurrentProject().getRemotePluginRepositories();
+      }
+      logger
+          .debug("Attempting to load plugin {} using pluginManager {} and repositories {}", plugin,
+              pluginManager, repositories);
+      return (PluginDescriptor) loadPlugin
+          .invoke(pluginManager, plugin, repositories, repositorySession);
+    } catch (IllegalAccessException e) {
+      throw new MojoExecutionException("Unable to access plugin", e);
+    } catch (InvocationTargetException e) {
+      logger.debug("Unable to invoke plugin", e.getCause());
+      // Unwrap the exception to throw the correct type.
+      if (e.getCause() instanceof PluginNotFoundException) {
+        throw ((PluginNotFoundException) e.getCause());
+      } else if (e.getCause() instanceof PluginResolutionException) {
+        throw ((PluginResolutionException) e.getCause());
+      } else if (e.getCause() instanceof PluginDescriptorParsingException) {
+        throw ((PluginDescriptorParsingException) e.getCause());
+      } else if (e.getCause() instanceof InvalidPluginDescriptorException) {
+        throw ((InvalidPluginDescriptorException) e.getCause());
+      } else {
+        throw new MojoExecutionException("Unable to invoke plugin", e.getCause());
+      }
+    }
+  }
 }

@@ -14,8 +14,10 @@
   See the License for the specific language governing permissions and
   limitations under the License.
   -->
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-    <modelVersion>4.0.0</modelVersion>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
 
   <parent>
     <groupId>org.sonatype.oss</groupId>
@@ -30,7 +32,8 @@
 
   <name>Mojo Executor Parent</name>
   <description>
-    The Mojo Executor provides a way to to execute other Mojos (pluginConfigurations) within a Maven pluginConfiguration, allowing you to
+    The Mojo Executor provides a way to to execute other Mojos (pluginConfigurations) within a Maven
+    pluginConfiguration, allowing you to
     easily create Maven pluginConfigurations that are composed of other pluginConfigurations.
   </description>
   <url>http://timmoore.github.com/mojo-executor/</url>
@@ -94,7 +97,8 @@
 
   <scm>
     <connection>scm:git:git://github.com/TimMoore/mojo-executor.git</connection>
-    <developerConnection>scm:git:ssh://git@github.com/TimMoore/mojo-executor.git</developerConnection>
+    <developerConnection>scm:git:ssh://git@github.com/TimMoore/mojo-executor.git
+    </developerConnection>
     <url>https://github.com/TimMoore/mojo-executor</url>
     <tag>HEAD</tag>
   </scm>
@@ -292,7 +296,9 @@
               <rules>
                 <requireMavenVersion>
                   <version>[3.0,4.0)</version>
-                  <message>Version 2.x of Mojo Executor requires Maven ${maven.version}. Use Mojo Executor 1.x with Maven 2.</message>
+                  <message>Version 2.x of Mojo Executor requires Maven ${maven.version}. Use Mojo
+                    Executor 1.x with Maven 2.
+                  </message>
                 </requireMavenVersion>
               </rules>
             </configuration>
