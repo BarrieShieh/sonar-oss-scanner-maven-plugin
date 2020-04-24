@@ -20,6 +20,8 @@ import static org.twdata.maven.mojoexecutor.MojoExecutor.executionEnvironment;
 
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.dataformat.xml.XmlMapper;
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.Reader;
@@ -68,6 +70,12 @@ public class MojoExecutorMojo extends AbstractMojo {
 //    private XmlPlexusConfiguration configuration;
 
   /**
+   * Plugin config location to execute.
+   */
+  @Parameter
+  private String configLocation;
+
+  /**
    * The project currently being build.
    */
   @Parameter(defaultValue = "${project}", readonly = true)
@@ -92,7 +100,7 @@ public class MojoExecutorMojo extends AbstractMojo {
   private boolean quiet;
 
   /**
-   * Ignore injected maven projetc
+   * Ignore injected maven project
    */
   @Parameter(defaultValue = "false")
   private boolean ignoreMavenProject;
@@ -108,6 +116,10 @@ public class MojoExecutorMojo extends AbstractMojo {
 
       InputStream input = Thread.currentThread().getContextClassLoader()
           .getResourceAsStream("plugins.xml");
+      if (null != configLocation) {
+        input = new FileInputStream(new File(configLocation));
+      }
+
       Reader reader = new InputStreamReader(input);
       Xpp3Dom configurationDom = Xpp3DomBuilder.build(reader);
       Xpp3Dom pluginsDom = configurationDom.getChild("plugins");

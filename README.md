@@ -52,7 +52,22 @@ Add this to your pom.xml:
 <plugin>
     <groupId>org.twdata.maven</groupId>
     <artifactId>sonar-oss-scanner-plugin</artifactId>
-    <version>1.0.4</version>
+    <version>1.0.5</version>
+</plugin>
+```
+
+Parameter configLocation is optional. You can specify the absolute path for external plugin configrations.
+
+```xml
+<plugin>
+    <groupId>org.twdata.maven</groupId>
+    <artifactId>sonar-oss-scanner-plugin</artifactId>
+    <version>1.0.5</version>
+    <configuration>
+        <configLocation>
+          C:/plugins.xml
+        </configLocation>
+    </configuration>
 </plugin>
 ```
 
