@@ -6,7 +6,7 @@ Embedded scanner
 
 This scanner is embedded with following scanner by default
 
-Embedded Plugin name              |Embedded Plugin name        |Description
+Embedded Plugin name              |Embedded Plugin version     |Description
 ----------------------------------|----------------------------|-----------------------------------------------
 dependency-check-maven            | 5.3.2                      |                 
 maven-checkstyle-plugin           | 3.1.1                      | With Google Java Style
