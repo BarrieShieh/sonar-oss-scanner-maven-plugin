@@ -56,7 +56,7 @@ Add this to your pom.xml:
 </plugin>
 ```
 
-Parameter configLocation is optional. You can specify the absolute path for external plugin configrations.
+Parameter configLocation is optional. You can specify the absolute path for the external plugin configurations.
 
 ```xml
 <plugin>
