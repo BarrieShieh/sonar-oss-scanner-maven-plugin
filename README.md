@@ -6,7 +6,7 @@ Embedded scanner
 
 This scanner is embedded with following scanner by default
 
-Embedded Plugin name              |Embedded Plugin name        |Description
+Embedded Plugin name              |Embedded Plugin version     |Description
 ----------------------------------|----------------------------|-----------------------------------------------
 dependency-check-maven            | 6.1.0                      |
 maven-checkstyle-plugin           | 3.1.2                      | With Google Java Style
@@ -56,7 +56,7 @@ Add this to your pom.xml:
 </plugin>
 ```
 
-Parameter configLocation is optional. You can specify the absolute path for external plugin configrations.
+Parameter configLocation is optional. You can specify the absolute path for the external plugin configurations.
 
 ```xml
 <plugin>
