@@ -22,7 +22,7 @@
   <parent>
     <groupId>org.twdata.maven</groupId>
     <artifactId>mojo-executor-parent</artifactId>
-    <version>1.0.5</version>
+    <version>1.0.6</version>
   </parent>
 
   <artifactId>sonar-oss-scanner-maven-plugin</artifactId>
@@ -67,8 +67,8 @@
       <artifactId>mojo-executor</artifactId>
     </dependency>
     <dependency>
-      <groupId>commons-lang</groupId>
-      <artifactId>commons-lang</artifactId>
+      <groupId>org.apache.commons</groupId>
+      <artifactId>commons-lang3</artifactId>
     </dependency>
     <dependency>
       <groupId>org.slf4j</groupId>
